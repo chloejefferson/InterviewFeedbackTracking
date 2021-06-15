@@ -30,5 +30,9 @@ namespace InterviewFeedbackTracking.Data
         public CompanyType TypeOfCompany { get; set; }
 
         public virtual List<Interview> Interviews { get; set; } = new List<Interview>();
+
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
     }
 }

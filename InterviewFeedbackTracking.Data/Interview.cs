@@ -33,7 +33,7 @@ namespace InterviewFeedbackTracking.Data
 
         public DateTime DateOfInterview { get; set; }
 
-        public DateTime ModifiedDate { get; set; }
+        public DateTime? ModifiedDate { get; set; }
 
         public InterviewType TypeOfInterview { get; set; }
 
