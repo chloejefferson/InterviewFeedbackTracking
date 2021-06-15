@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InterviewFeedbackTracking.Data
 {
-    public enum CompanyType
+    public enum IndustryEnum
     {
         Tech = 1,
         Financial,
@@ -27,9 +27,11 @@ namespace InterviewFeedbackTracking.Data
 
         public string Website { get; set; }
 
-        public CompanyType TypeOfCompany { get; set; }
+        public IndustryEnum Industry { get; set; }
 
         public virtual List<Interview> Interviews { get; set; } = new List<Interview>();
+            
+        public virtual List<InterviewProfile> InterviewProfiles { get; set; } = new List<InterviewProfile>();
 
         public DateTime CreatedDate { get; set; }
 

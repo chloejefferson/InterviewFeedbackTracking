@@ -13,7 +13,7 @@ namespace InterviewFeedbackTracking.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202106151708496_InitialMigration"; }
+            get { return "202106152307026_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

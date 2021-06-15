@@ -10,7 +10,6 @@ namespace InterviewFeedbackTracking.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "InterviewFeedbackTracking.Data.ApplicationDbContext";
         }
 
         protected override void Seed(InterviewFeedbackTracking.Data.ApplicationDbContext context)
