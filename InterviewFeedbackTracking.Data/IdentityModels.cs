@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -9,7 +10,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace InterviewFeedbackTracking.Data
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser // Reference to add properties to applicationuser https://stackoverflow.com/questions/40532987/how-to-extend-identityuser-with-custom-property/40579369
     {
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -18,6 +19,11 @@ namespace InterviewFeedbackTracking.Data
             // Add custom user claims here
             return userIdentity;
         }
+
+        public IndustryEnum Industry { get; set; }
+        public string About { get; set; }
+
+        public virtual List<Interview> Interviews { get; set; } = new List<Interview>();
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -33,34 +39,40 @@ namespace InterviewFeedbackTracking.Data
         }
 
         public DbSet<Interview> Interviews { get; set; }
+
         public DbSet<Company> Companies { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder
-                    .Conventions
-                    .Remove<PluralizingTableNameConvention>();
+        public DbSet<InterviewProfile> InterviewProfiles {get;set;}
 
-            modelBuilder
-                .Configurations
-                .Add(new IdentityUserLoginConfiguration())
-                .Add(new IdentityUserRoleConfiguration());
-        }
-    }
+        public DbSet<InterviewProfileStep> InterviewProfileSteps { get; set; }
 
-    public class IdentityUserLoginConfiguration: EntityTypeConfiguration<IdentityUserLogin>
+
+    protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
-        public IdentityUserLoginConfiguration()
-        {
-            HasKey(iul => iul.UserId);
-        }
-    }
+        modelBuilder
+                .Conventions
+                .Remove<PluralizingTableNameConvention>();
 
-    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-    {
-        public IdentityUserRoleConfiguration()
-        {
-            HasKey(iur => iur.UserId);
-        }
+        modelBuilder
+            .Configurations
+            .Add(new IdentityUserLoginConfiguration())
+            .Add(new IdentityUserRoleConfiguration());
     }
+}
+
+public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+{
+    public IdentityUserLoginConfiguration()
+    {
+        HasKey(iul => iul.UserId);
+    }
+}
+
+public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+{
+    public IdentityUserRoleConfiguration()
+    {
+        HasKey(iur => iur.UserId);
+    }
+}
 }

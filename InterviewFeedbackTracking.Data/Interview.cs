@@ -12,8 +12,7 @@ namespace InterviewFeedbackTracking.Data
     {
         PhoneScreen = 1,
         TechScreen,
-        CultureScreen,
-        Other
+        FinalScreen
     }
     public class Interview
     {
@@ -36,6 +35,8 @@ namespace InterviewFeedbackTracking.Data
         public DateTime? ModifiedDate { get; set; }
 
         public InterviewType TypeOfInterview { get; set; }
+
+        public LevelEnum InterviewLevel { get; set; }
 
         public string Comment { get; set; }
 
