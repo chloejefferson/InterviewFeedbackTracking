@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using InterviewFeedbackTracking.Models;
+using InterviewFeedbackTracking.Data;
 
 namespace InterviewFeedbackTracking.Controllers
 {
