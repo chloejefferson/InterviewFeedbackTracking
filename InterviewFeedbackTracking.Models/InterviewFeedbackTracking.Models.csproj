@@ -53,6 +53,10 @@
     <Compile Include="Company\CompanyDetail.cs" />
     <Compile Include="Company\CompanyEdit.cs" />
     <Compile Include="Company\CompanyListItem.cs" />
+    <Compile Include="Interview\InterviewCreate.cs" />
+    <Compile Include="Interview\InterviewDetail.cs" />
+    <Compile Include="Interview\InterviewEdit.cs" />
+    <Compile Include="Interview\InterviewListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
