@@ -10,16 +10,18 @@ namespace InterviewFeedbackTracking.Data
 {
     public class InterviewProfileStep
     {
-        [Key]
+        [Key, Required]
         public int InterviewProfileStepId { get; set; }
 
-        [ForeignKey(nameof(InterviewProfile))]
+        [ForeignKey(nameof(InterviewProfile)), Required]
         public int InterviewProfileId { get; set; }
 
         public virtual InterviewProfile InterviewProfile { get; set; }
 
+        [Required]
         public InterviewType TypeOfInterview { get; set; }
 
+        [Required]
         public string Details { get; set; }
 
     }

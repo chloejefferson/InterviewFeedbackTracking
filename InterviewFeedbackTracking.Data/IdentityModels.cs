@@ -20,6 +20,16 @@ namespace InterviewFeedbackTracking.Data
             return userIdentity;
         }
 
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
+
         public IndustryEnum Industry { get; set; }
         public string About { get; set; }
 
@@ -42,37 +52,37 @@ namespace InterviewFeedbackTracking.Data
 
         public DbSet<Company> Companies { get; set; }
 
-        public DbSet<InterviewProfile> InterviewProfiles {get;set;}
+        public DbSet<InterviewProfile> InterviewProfiles { get; set; }
 
         public DbSet<InterviewProfileStep> InterviewProfileSteps { get; set; }
 
 
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        modelBuilder
-                .Conventions
-                .Remove<PluralizingTableNameConvention>();
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder
+                    .Conventions
+                    .Remove<PluralizingTableNameConvention>();
 
-        modelBuilder
-            .Configurations
-            .Add(new IdentityUserLoginConfiguration())
-            .Add(new IdentityUserRoleConfiguration());
+            modelBuilder
+                .Configurations
+                .Add(new IdentityUserLoginConfiguration())
+                .Add(new IdentityUserRoleConfiguration());
+        }
     }
-}
 
-public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
-{
-    public IdentityUserLoginConfiguration()
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
-        HasKey(iul => iul.UserId);
+        public IdentityUserLoginConfiguration()
+        {
+            HasKey(iul => iul.UserId);
+        }
     }
-}
 
-public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-{
-    public IdentityUserRoleConfiguration()
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
     {
-        HasKey(iur => iur.UserId);
+        public IdentityUserRoleConfiguration()
+        {
+            HasKey(iur => iur.UserId);
+        }
     }
-}
 }
