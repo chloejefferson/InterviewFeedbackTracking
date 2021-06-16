@@ -18,23 +18,38 @@ namespace InterviewFeedbackTracking.Data
     }
     public class Company
     {
-        [Key]
+        [Key, Required]
         public int CompanyId { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
-        public string Address { get; set; }
+        [Required]
+        public string StreetAddress { get; set; }
 
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        public string State { get; set; }
+
+        [Required]
+        public string Zip { get; set; }
+
+        [Required]
         public string Website { get; set; }
 
+        [Required]
+        public DateTime CreatedDate { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
+
+        [Required]
         public IndustryEnum Industry { get; set; }
 
         public virtual List<Interview> Interviews { get; set; } = new List<Interview>();
             
         public virtual List<InterviewProfile> InterviewProfiles { get; set; } = new List<InterviewProfile>();
 
-        public DateTime CreatedDate { get; set; }
-
-        public DateTime? ModifiedDate { get; set; }
     }
 }
