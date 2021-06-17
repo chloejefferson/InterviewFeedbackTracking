@@ -56,6 +56,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -254,6 +257,14 @@
     <ProjectReference Include="..\InterviewFeedbackTracking.Data\InterviewFeedbackTracking.Data.csproj">
       <Project>{4f5f1ba8-2ffc-49c4-83f5-359d23c477f9}</Project>
       <Name>InterviewFeedbackTracking.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InterviewFeedbackTracking.Models\InterviewFeedbackTracking.Models.csproj">
+      <Project>{CE0B23A6-2FC7-49BC-87B2-809593CFFCC1}</Project>
+      <Name>InterviewFeedbackTracking.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InterviewFeedbackTracking.Services\InterviewFeedbackTracking.Services.csproj">
+      <Project>{F15C95CF-9A5D-450D-AEA1-1701207B2CB9}</Project>
+      <Name>InterviewFeedbackTracking.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -16,6 +16,7 @@ namespace InterviewFeedbackTracking.Models.Interview
         public string Interviewer { get; set; }
 
         public string IntervieweeGuid { get; set; } //unsure if this should be of data type guid
+        //just depends on how it is used in the front end. We are just making whatever Jacob wants. We could pull any detail from the user to display, like just their full name -CJ
 
         public DateTime CreatedDate { get; set; }
 
