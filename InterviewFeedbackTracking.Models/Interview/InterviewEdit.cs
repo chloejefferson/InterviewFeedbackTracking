@@ -12,7 +12,7 @@ namespace InterviewFeedbackTracking.Models.Interview
     {
         public int InterviewId { get; set; }
 
-        public string Company { get; set; } //added company as string here instead of virtual to pull only the string value from the virtual object
+        public string CompanyName { get; set; } //added company as string here instead of virtual to pull only the string value from the virtual object
 
         public string Interviewer { get; set; }
 

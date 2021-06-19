@@ -9,7 +9,7 @@ namespace InterviewFeedbackTracking.Models.Interview
 {
     public class InterviewListItem
     {
-        public string Company { get; set; }
+        public string CompanyName { get; set; }
 
         public DateTime DateOfInterview { get; set; }
 
